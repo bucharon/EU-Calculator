@@ -57,5 +57,44 @@ namespace EUCalculator
             }
             return false;
         }
+
+        public bool reinforcedQualifiedMajority()
+        {
+            double populationY = 0;
+            for (int i = 0; i < voteY.Count(); i++)
+            {
+                populationY += voteY.ElementAt(i).Percentage;
+            }
+            if (voteY.Count() > 0.72 * Countries.Count && populationY > 65)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool simpleMajority()
+        {
+            double populationY = 0;
+            for (int i = 0; i < voteY.Count(); i++)
+            {
+                populationY += voteY.ElementAt(i).Percentage;
+            }
+            if (voteY.Count() > 0.5 * Countries.Count)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool unanimity()
+        {
+            if (voteY.Count() == Countries.Count)
+            {
+                return true;
+            }
+            return false;
+        }
     }
+
 }
+

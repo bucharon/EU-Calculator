@@ -8,6 +8,16 @@ namespace EUCalculator
     {
         static void Main(string[] args)
         {
+            
+                Console.WriteLine("What voting style do you want to use?");
+                Console.WriteLine("1 : Qualified majority");
+                Console.WriteLine("2 : Reinforced qualified majority");
+                Console.WriteLine("3 : Simple majority");
+                Console.WriteLine("4 : Unanimity");
+                int votingRule = Convert.ToInt16(Console.ReadLine());
+            
+
+
             List<Country> list = new List<Country>();
 
             string[] info = File.ReadAllLines("Countries.txt");
@@ -57,8 +67,28 @@ namespace EUCalculator
                         break;
                 }
 
-                Console.WriteLine("Percentage yes votes: "+ Math.Round(vote.Population(),0)+"%");
-                Console.WriteLine("Qualified Majority: "+vote.QualifiedMajority());
+                if (votingRule == 1)
+                {
+                    Console.WriteLine("Percentage yes votes: " + Math.Round(vote.Population(), 0) + "%");
+                    Console.WriteLine("Qualified Majority: " + vote.QualifiedMajority());
+                }
+                if (votingRule == 2)
+                {
+                    Console.WriteLine("Percentage yes votes: " + Math.Round(vote.Population(), 0) + "%");
+                    Console.WriteLine("Reinforced Qualified Majority: " + vote.reinforcedQualifiedMajority());
+                }
+                if (votingRule == 3)
+                {
+                    Console.WriteLine("Percentage yes votes: " + Math.Round(vote.Population(), 0) + "%");
+                    Console.WriteLine("Simple Majority: " + vote.simpleMajority());
+                }
+                if (votingRule == 4)
+                {
+                    Console.WriteLine("Percentage yes votes: " + Math.Round(vote.Population(), 0) + "%");
+                    Console.WriteLine("Unanimity: " + vote.unanimity());
+                }
+
+                
             } 
 
 
